@@ -1,18 +1,19 @@
-import { StyleSheet, View } from 'react-native';
-import Weather from './Screens/Weather';
-import Radar from './Screens/Radar';
-import { NavigationContainer } from '@react-navigation/native';
+import { StyleSheet } from 'react-native';
+import { NavigationContainer, TabActions } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-const tab = createBottomTabNavigator;
+import WeatherScreen from './Screens/WeatherScreen';
+import RadarScreen from './Screens/RadarScreen';
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer >
-      <tab.Navigator screenOptions={{headerShown: false}}>
-        <tab.Screen name="Weather" component={Weather} />
-        <tab.Screen name="Radar" component={Radar} />
-      </tab.Navigator>
+    <NavigationContainer>
+      <Tab.Navigator screenOptions={{headerShown: false}}>
+        <Tab.Screen name="Weather" component={WeatherScreen} />
+        <Tab.Screen name="Radar" component={RadarScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }

@@ -1,15 +1,17 @@
 import MapView from 'react-native-maps';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
 
-export default function Radar() {
+export default function RadarScreen() {
     return (
-        <MapView style={styles.map}/>
+		<View>
+        	<MapView style={styles.map} />
+		</View>
      );
 }
 
 const styles = StyleSheet.create({
 	map: {
 		width: Dimensions.get("window").width,
-		height: Dimensions.get("window").height
+		height: Dimensions.get("window").height,
 	}
 })
