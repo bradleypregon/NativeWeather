@@ -1,8 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import { RefreshControl, StyleSheet, Text, View, ScrollView, StatusBar, Button, SafeAreaView } from 'react-native';
+import { RefreshControl, StyleSheet, Text, View, ScrollView, StatusBar, Button, SafeAreaView, Dimensions } from 'react-native';
 import {OWM_KEY} from '@env';
 
+import ReactNativeParallaxHeader from 'react-native-parallax-header';
+
 import data from '../TestAPIData.json';
+
+const {height: SCREEN_HEIGHT} = Dimensions.get('window');
 
 export default function WeatherScreen() {
   let lat = 41.0076;
@@ -11,6 +15,7 @@ export default function WeatherScreen() {
   
   // temporarily setting useState to FALSE and commenting out [data, setData]
   const [isLoading, setLoading] = useState(false);
+  
   //const [data, setData] = useState([]);
   const [refreshing, setRefreshing] = React.useState(false);
 
@@ -81,19 +86,23 @@ const styles = StyleSheet.create({
       fontSize: 40,
       color: 'white',
       textShadowColor: '#666',
-      textShadowRadius: 3,
-      textShadowOffset: {width: 0, height: 2}
+      textShadowRadius: 10,
+      textShadowOffset: {width: 0, height: 1}
     },
     temperatureText: {
-      fontSize: 80,
+      fontSize: 100,
+      fontWeight: '200',
       color: 'white',
       textShadowColor: '#666',
-      textShadowRadius: 3,
-      textShadowOffset: {width: 0, height: 2}
+      textShadowRadius: 10,
+      textShadowOffset: {width: 0, height: 1}
     },
     detailText: {
       color: 'white',
-      fontSize: 17,
-      fontWeight: '600'
+      fontSize: 20,
+      fontWeight: '600',
+      textShadowColor: '#666',
+      textShadowRadius: 10,
+      textShadowOffset: {width: 0, height: 1}
     },
   });
